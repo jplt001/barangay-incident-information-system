@@ -1,3 +1,7 @@
-@props(['disabled' => false])
+@props(['disabled' => false, "label"=> "Label"])
 
-<input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50']) !!}>
+<div class="form-floating">
+    <input {{ $disabled ? 'disabled' : ''}} {!!  $attributes->merge(['class' => 'form-control']) !!} >
+    <label for="">{{$label}}</label>
+</div>
+{{--  <input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50']) !!}>  --}}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Resident;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\IncidentAlert;
 use App\Services\ResidentServices;
 use Illuminate\Support\Facades\Validator;
 
@@ -35,16 +36,6 @@ class IncidentAlertController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -52,7 +43,24 @@ class IncidentAlertController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "resident_id"=> "required|exists:residents,id",
+            "incident_type_id"=> "required|exists:incident_types,id",
+            "report_summary"=> "required|min:10|max:300",
+            "description"=> "nullable|min:10",
+            "latitude"=> "nullable|int",
+            "longitude"=> "nullable|int",
+
+        ]);
+
+
+        $sets = $request->all();
+        // dd(auth()->user());
+
+        $incidentReport = IncidentAlert::create($sets);
+
+        
+        return $this->ApiResponse($incidentReport, 201);
     }
 
     /**
@@ -63,18 +71,7 @@ class IncidentAlertController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        return IncidentAlert::find($id);
     }
 
     /**

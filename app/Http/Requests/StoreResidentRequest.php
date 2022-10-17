@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Resident;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreResidentRequest extends FormRequest
@@ -13,7 +14,7 @@ class StoreResidentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,10 @@ class StoreResidentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "first_name"=> "required|string|min:5",
+            "last_name"=> "required|string|min:5",
+            "email"=> "unique:".Resident::TABLENAME.",".Resident::FIELD_EMAIL,
+            Resident::FIELD_CONTACT_NUMBER=> "unique:".Resident::TABLENAME.",".Resident::FIELD_EMAIL,
         ];
     }
 }

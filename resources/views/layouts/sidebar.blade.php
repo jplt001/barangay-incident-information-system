@@ -13,12 +13,12 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="{{ url('/news')}}">
               <i class="bi bi-circle"></i><span>News</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="{{ url('/health-tips') }}">
               <i class="bi bi-circle"></i><span>Health Tips</span>
             </a>
           </li>
@@ -31,7 +31,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a href="{{ url('incidents')}}">
               <i class="bi bi-circle"></i><span>Incident Alerts</span>
             </a>
           </li>
@@ -64,20 +64,15 @@
             </a>
           </li>
           <li>
-            <a href="{{ url('employees')}}">
-              <i class="bi bi-circle"></i><span>Employees</span>
-            </a>
-          </li>
-          <li>
             <a href="{{ url('residents')}}">
               <i class="bi bi-circle"></i><span>Residents</span>
             </a>
           </li>
-          <li>
+          {{--  <li>
             <a href="{{ url('employees')}}">
               <i class="bi bi-circle"></i><span>Employees</span>
             </a>
-          </li>
+          </li>  --}}
           <li>
             <a href="{{ url('employees')}}">
               <i class="bi bi-circle"></i><span>Incident Types</span>

@@ -2,20 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\IncidentAlert;
 use App\Http\Requests\StoreIncidentAlertRequest;
 use App\Http\Requests\UpdateIncidentAlertRequest;
+use App\Services\IncidentAlertService;
 
 class IncidentAlertController extends Controller
 {
+
+    protected $service;
+    function __construct(IncidentAlertService $service)
+    {
+        $this->service = $service;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if($request->has("e") && $request->e === "ajax") {
+            $alerts = $this->service->fetchAll();
+
+            return ["data"=>$alerts];
+        }
+        return view("incidents.alerts.index");
     }
 
     /**

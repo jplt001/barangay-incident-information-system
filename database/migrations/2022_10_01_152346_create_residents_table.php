@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("email");
             $table->string("contact_number");
             $table->string("gender")->nullable();
+            $table->string("password")->nullable();
             $table->date("birthdate")->nullable();
             $table->longText("address1");
             $table->longText("address2")->nullable();

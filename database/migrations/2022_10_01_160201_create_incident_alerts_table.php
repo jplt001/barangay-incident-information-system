@@ -17,9 +17,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('incident_alerts', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements("id");
             $table->unsignedBigInteger("resident_id")->comment("Reported By");
-            $table->unsignedBigInteger("incident_type_id");
+            $table->unsignedBigInteger("incident_type_id")->comment("Primary ID of incident_types table.");
             $table->text("report_summary")->comment("summary inforamtion of incident.");
             $table->longText("description")->nullable()->comment("Detailed information of the incident.");
             $table->dateTime("reported_at")->default(DB::raw('CURRENT_TIMESTAMP'));

@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class IncidentAlert extends Model
+class IncidentAlert extends Model implements Auditable
 {
-    use HasFactory;
+    use HasFactory, \OwenIt\Auditing\Auditable;
 
     const TABLENAME = "incident_alerts";
 
+    const FIELD_ID = "id";
     const FIELD_RESIDENT_ID = "resident_id";
     const FIELD_INCIDENT_TYPE_ID = "incident_type_id";
     const FIELD_REPORT_SUMMARY = "report_summary";
@@ -40,5 +42,13 @@ class IncidentAlert extends Model
 
     public function resident() {
         return $this->belongsTo(Resident::class);
+    }
+
+    public function Responders() {
+        return IncidentAlertActionTakenBy::where(IncidentAlertActionTakenBy::FIELD_INCIDENT_ALERT_ID, $this->id)->get();
+    }
+
+    public function IncidentType() {
+        return $this->belongsTo(IncidentType::class);
     }
 }
