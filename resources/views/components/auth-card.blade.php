@@ -1,9 +1,15 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-    <div>
-        {{ $logo }}
-    </div>
-
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-        {{ $slot }}
-    </div>
+<div class="auth-wrapper">
+	<div class="auth-content">
+        <div class="card">
+            <div class="row align-items-center text-center">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        {{$logo}}
+                        <h4 class="mb-3 f-w-400">Signin</h4>
+                        {{$slot}}
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
 </div>

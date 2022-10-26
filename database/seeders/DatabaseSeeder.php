@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             BarangaySeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            FaqsSeeder::class,
         ]);
     }
 }

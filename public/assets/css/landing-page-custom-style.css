@@ -1,0 +1,20 @@
+.navbar .getstarted, .navbar .getstarted:focus {
+    background-color: #266DD3!important;
+}
+
+
+#hero h1,.section-title h2{
+    color: #266DD3!important;
+}
+
+#hero h2{
+    color: #344055!important;
+}
+
+#hero .download-btn {
+    background-color: #344055!important;
+}
+
+#hero .download-btn:hover {
+    background-color: #266DD3!important;
+}
