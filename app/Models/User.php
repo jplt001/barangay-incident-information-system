@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -62,4 +63,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function barangay() {
+        return $this->hasOne(Barangay::class, 'id', self::FIELD_BARANGAY_ID);
+    }
+
+    public function role() {
+        return $this->hasOne(Role::class, "name", self::FIELD_ROLE)->select(["name", "display_name"]);
+    }
 }

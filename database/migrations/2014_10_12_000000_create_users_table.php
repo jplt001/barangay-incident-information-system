@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger("barangay_id")->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->longText('profile_picture')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

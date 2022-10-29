@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <div class="card-body">
                         {{$logo}}
-                        <h4 class="mb-3 f-w-400">Signin</h4>
+                        {{$pageheader}}
                         {{$slot}}
                     </div>
                 </div>

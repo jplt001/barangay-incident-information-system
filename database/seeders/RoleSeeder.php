@@ -17,23 +17,31 @@ class RoleSeeder extends Seeder
     {
         $userAdminRole = Role::create([
             "name"=>"super-admin",
-            "guard_name"=> "web"
+            "display_name"=> "Super Admin",
+            "guard_name"=> "web",
         ]);
         $adminRole = Role::create([
             "name"=>"admin",
-            "guard_name"=> "web"
+            "display_name" => "Administrator",
+            "guard_name"=> "web",
         ]);
         $ownerRole = Role::create([
             "name"=>"owner",
-            "guard_name"=> "web"
+            "display_name" => "Owner",
+            "guard_name"=> "web",
+            "barangay_id" => 0,
         ]);
         $ownerRole = Role::create([
             "name"=>"tanod",
-            "guard_name"=> "web"
+            "display_name" => "Barangay Tanod",
+            "guard_name"=> "web",
+            "barangay_id" => 0,
         ]);
         $userAdminRole = Role::create([
             "name"=>"resident",
-            "guard_name"=> "web"
+            "display_name" => "Resident",
+            "guard_name"=> "web",
+            "barangay_id"=> 0,
         ]);
     }
 }

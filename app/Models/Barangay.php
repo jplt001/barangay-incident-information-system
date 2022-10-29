@@ -20,6 +20,7 @@ class Barangay extends Model
     const FIELD_LATITUDE = "latitude";
     const FIELD_LONGITUDE = "longitude";
     const FIELD_LOGO = "logo";
+    const FIELD_SETUP_FINISHED = "setup_finished";
 
     /**
      * The attributes that are mass assignable.
@@ -34,6 +35,7 @@ class Barangay extends Model
         self::FIELD_LANDLINE_NUMBER,
         self::FIELD_LATITUDE,
         self::FIELD_LONGITUDE,
-        self::FIELD_LOGO
+        self::FIELD_LOGO,
+        self::FIELD_SETUP_FINISHED,
     ];
 }
