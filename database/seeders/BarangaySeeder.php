@@ -19,7 +19,8 @@ class BarangaySeeder extends Seeder
             Barangay::FIELD_NAME=> "Bayan Luma IV - Holiday Village",
             Barangay::FIELD_ADDRESS1=> "Bayan Luma IV, Holiday Village, Imus, Cavite",
             Barangay::FIELD_LATITUDE=> 14.416381489920044, 
-            Barangay::FIELD_LONGITUDE=>120.93778641672343
+            Barangay::FIELD_LONGITUDE=>120.93778641672343,
+            Barangay::FIELD_SETUP_FINISHED=> 1,
         ]);
     }
 }

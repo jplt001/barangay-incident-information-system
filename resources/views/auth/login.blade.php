@@ -1,9 +1,12 @@
 <x-guest-layout>
-    <x-auth-card>
+    <x-auth-card page="Signup">
        <x-slot name="logo">
             <x-application-logo/>
        </x-slot>
-       <form action="{{ route('login') }}" method="post" class="was-validated" >
+       <x-slot name="pageheader">
+        <h4 class="mb-3 f-w-400">Signin</h4>
+       </x-slot>
+       <form action="{{ route('login') }}" method="post" class="needs-validation @if($errors->any()) was-validated @endif" novalidate>
         @csrf
         {{--  Email  --}}
         <x-auth-text-input type="email" id="email" name="email" label="Email address" formgroupclass="mb-3" required floatinglabel=true/>

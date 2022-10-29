@@ -30,6 +30,7 @@ class CreatePermissionTables extends Migration
             $table->string('display_name')->nullable();
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
             $table->string('guard_name'); // For MySQL 8.0 use string('guard_name', 125);
+            $table->string("barangay_id")->nullable();
             $table->timestamps();
             $table->unique(['name', 'guard_name']);
         });
