@@ -21,6 +21,7 @@ class Barangay extends Model
     const FIELD_LONGITUDE = "longitude";
     const FIELD_LOGO = "logo";
     const FIELD_SETUP_FINISHED = "setup_finished";
+    const FIELD_CODE = "code";
 
     /**
      * The attributes that are mass assignable.
@@ -28,6 +29,7 @@ class Barangay extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        self::FIELD_CODE,
         self::FIELD_NAME,
         self::FIELD_ADDRESS1,
         self::FIELD_ADDRESS2,

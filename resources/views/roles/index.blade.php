@@ -8,18 +8,11 @@
     <script>
         $(document).ready(function(){
 
-            $("#userstable").DataTable({
-                ajax: `{{ route('users') }}`,
+            $("#residentsTable").DataTable({
+                ajax: `{{ route('roles') }}`,
                 columns: [
                     { data: 'id', },
-                    { data: 'last_name', },
-                    { data: 'first_name', },
-                    { data: 'middle_name', },
-                    { data: 'email', },
-                    { data: 'role', render: (data, q, i, s)=> {
-                        if(data.name == "owner") return "Barangay Official";
-                        return data.display_name;
-                    }},
+                    { data: 'display_name', },
                     { data: 'id', render: (id, r, q, c)=> {
                         return `
                         <div class="btn-group btn-group-sm">
@@ -36,25 +29,22 @@
 
 @endpush
 
-<x-app-layout pageName="{{ __('Users') }}">
+<x-app-layout pageName="{{ __('Roles') }}">
     <x-slot name="breadcrumbs">
-        <x-breadcrumb-item label="Users" icon="user" iscurrent=true/>
+        <x-breadcrumb-item label="Residents" icon="user" iscurrent=true/>
     </x-slot>
+
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header text-right">
-                    <a href="{{ route('users.create') }}"><i class="feather icon-user-plus"></i> {{ __('New User') }}</a>
+                    <a href="{{ route('roles.create') }}"><i class="feather icon-user-plus"></i> {{ __('New Role') }}</a>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover" id="userstable">
+                    <table class="table table-hover" id="residentsTable">
                         <thead>
                             <tr>
                                 <th>{{ __('#') }}</th>
-                                <th>{{ __('Last Name') }}</th>
-                                <th>{{ __('First Name') }}</th>
-                                <th>{{ __('Middle Name') }}</th>
-                                <th>{{ __('Email Address') }}</th>
                                 <th>{{ __('Role') }}</th>
                                 <th>{{ __('ACTIONS') }}</th>
                             </tr>
@@ -64,4 +54,5 @@
             </div>
         </div>
     </div>
+
 </x-app-layout>
