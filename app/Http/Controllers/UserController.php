@@ -80,7 +80,7 @@ class UserController extends Controller
         ];
         $request->validate($rules);
 
-
+        $role = 
         $data = $request->except("_token");
         $data['email_verified_at'] = Carbon::now()->toDateTimeString();
         $data['password'] = Hash::make($data['password']);
@@ -138,7 +138,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-
         if(is_null($user)) {
             return redirect("users")->with("alert-warning", "Sorry, user does not exist.");
         }
@@ -178,7 +177,12 @@ class UserController extends Controller
 
         // Role
         if($data[User::FIELD_ROLE] != $user->{User::FIELD_ROLE}) {
+            $oldRole = $user->{User::FIELD_ROLE};
             $user->{User::FIELD_ROLE} = $data[User::FIELD_ROLE];
+            $newRole = $data[User::FIELD_ROLE];
+            $user->removeRole($oldRole);
+
+            $user->syncRoles([$newRole]);
         }
 
         if($user->isDirty()) {

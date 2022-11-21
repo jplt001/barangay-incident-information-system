@@ -13,7 +13,7 @@
                 <div class="collapse" id="nav-user-link">
                     <ul class="list-unstyled">
                         <li class="list-group-item"><a href="{{ route('profile') }}"><i class="feather icon-user m-r-5"></i>View Profile</a></li>
-                        <li class="list-group-item"><a href="#!"><i class="feather icon-settings m-r-5"></i>Settings</a></li>
+                        <li class="list-group-item"><a href="{{ route('settings.home') }}"><i class="feather icon-settings m-r-5"></i>Settings</a></li>
                         <li class="list-group-item">
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
@@ -156,6 +156,7 @@
                         </div>
                         <ul class="pro-body">
                             <li><a href="{{ route('profile') }}" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                            <li><a href="{{ route('mybarangay.home') }}" class="dropdown-item"><i class="feather icon-home"></i> Barangay Information</a></li>
                             {{--  <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
                             <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>  --}}
                         </ul>

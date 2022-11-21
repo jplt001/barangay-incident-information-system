@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AccountSettings;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MyBarangayController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResidentController;
+use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -47,9 +50,28 @@ Route::middleware(["auth", "verified"])->group(function() {
 
     Route::prefix("residents")->controller(ResidentController::class)->group(function() {
         Route::get("/", "index")->name("residents");
-        Route::get("/new-user", "create")->name("residents.create");
+        Route::get("/create", "create")->name("residents.create");
+        Route::post("/", "store")->name("residents.postcreate");
         Route::get("/{id}", "show")->name("residents.view");
         Route::get("/{id}/edit", "edit")->name("residents.edit");
+        Route::put("/{id}/edit", "update")->name("residents.putupdate");
+    });
+
+    Route::prefix("roles")->controller(RolesController::class)->group(function() {
+        Route::get("/", "index")->name("roles");
+        Route::get("/new-role", "create")->name("roles.create");
+        Route::get("/{id}", "show")->name("roles.view");
+        Route::get("/{id}/edit", "edit")->name("roles.edit");
+    });
+
+    Route::prefix("my-barangay")->controller(MyBarangayController::class)->group(function(){
+        Route::get("/", "index")->name("mybarangay.home");
+        Route::get("/edit", "index")->name("mybarangay.edit");
+        Route::put("/edit", "update")->name("mybarangay.do.update");
+    });
+
+    Route::prefix("settings")->controller(AccountSettings::class)->group(function(){
+        Route::get("/", "index")->name("settings.home");
     });
     // Route::get("/profile", function () {
     //     return abort(404);

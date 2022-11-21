@@ -29,6 +29,11 @@
             margin-left: 3px;
             
         }
+        input:read-only {
+            background-color: white!important;
+            cursor: pointer;
+            padding: 5px;
+        }
     </style>
     @stack("styles")
 </head>
@@ -77,5 +82,30 @@
     <script src="{{ asset('assets/js/pusher-app.js') }}"></script>
     
     @stack("scripts")
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDo7cFwE0yLFXnAADn93SxvgdbdnGgaWbc",
+            authDomain: "barangayincidentms.firebaseapp.com",
+            projectId: "barangayincidentms",
+            storageBucket: "barangayincidentms.appspot.com",
+            messagingSenderId: "973000442039",
+            appId: "1:973000442039:web:0c02dbdcae325dabb44d32",
+            measurementId: "G-NT2WB7E0HQ"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </body>
 </html>

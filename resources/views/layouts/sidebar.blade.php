@@ -45,7 +45,7 @@
         <a href="{{ route('residents') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Residents</span></a>
     </li>
     <li class="nav-item">
-        <a href="{{ route('residents') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Roles</span></a>
+        <a href="{{ route('roles') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Roles</span></a>
     </li>
     {{--  <li class="nav-item pcoded-hasmenu">
         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Documents</span></a>
